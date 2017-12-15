@@ -19,8 +19,8 @@ $(document).ready(function () {
  
       {
         fill: false,
-        label: 'irquality',
-        yAxisID: 'airquality',
+        label: 'Airquality',
+        yAxisID: 'Airquality',
         borderColor: "rgba(24, 120, 240, 1)",
         pointBoarderColor: "rgba(24, 120, 240, 1)",
         backgroundColor: "rgba(24, 120, 240, 0.4)",
@@ -34,7 +34,7 @@ $(document).ready(function () {
   var basicOption = {
     title: {
       display: true,
-      text: 'Temperature & Humidity Real-time Data',
+      text: 'Car Environment Monitor',
       fontSize: 36
     },
     scales: {

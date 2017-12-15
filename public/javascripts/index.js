@@ -49,7 +49,7 @@ $(document).ready(function () {
       }, 
 
       {
-          id: 'airquality',
+          id: 'Airquality',
           type: 'linear',
           scaleLabel: {
             labelString: 'Air Quality',

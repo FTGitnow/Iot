@@ -98,8 +98,10 @@ var ws = new WebSocket('wss://' + location.host);
         return;
       }
       var tep = obj.temperature;
-
-document.getElementById("demo").innerHTML = tep;}
+      var air = obj.airquality;
+if (temperature>15 && temperature< 30){
+document.getElementById("demo").innerHTML = "The temperature is just right";}
+}
 </script>
 </div>
 

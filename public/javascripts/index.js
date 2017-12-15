@@ -1,7 +1,8 @@
 $(document).ready(function () {
   var timeData = [],
     temperatureData = [],
-    humidityData = [];
+    humidityData = [],
+    airData = [];
   var data = {
     labels: timeData,
     datasets: [
@@ -27,6 +28,17 @@ $(document).ready(function () {
         pointHoverBorderColor: "rgba(24, 120, 240, 1)",
         data: humidityData
       }
+            {
+        fill: false,
+        label: 'COLevel',
+        yAxisID: 'COLevel',
+        borderColor: "rgba(24, 120, 240, 1)",
+        pointBoarderColor: "rgba(24, 120, 240, 1)",
+        backgroundColor: "rgba(24, 120, 240, 0.4)",
+        pointHoverBackgroundColor: "rgba(24, 120, 240, 1)",
+        pointHoverBorderColor: "rgba(24, 120, 240, 1)",
+        data: airData
+      }
     ]
   }
 
@@ -50,6 +62,15 @@ $(document).ready(function () {
           type: 'linear',
           scaleLabel: {
             labelString: 'Humidity(%)',
+            display: true
+          },
+          position: 'right'
+        },
+        {
+          id: 'COLevel',
+          type: 'linear',
+          scaleLabel: {
+            labelString: 'COLevel(%)',
             display: true
           },
           position: 'right'
@@ -92,6 +113,13 @@ $(document).ready(function () {
       }
       if (humidityData.length > maxLen) {
         humidityData.shift();
+      }
+
+       if (obj.airquality) {
+        airData.push(obj.airquality);
+      }
+      if (humidityData.length > maxLen) {
+        airData.shift();
       }
 
       myLineChart.update();

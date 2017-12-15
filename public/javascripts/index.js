@@ -83,6 +83,9 @@ $(document).ready(function () {
       }
       timeData.push(obj.time);
       temperatureData.push(obj.temperature);
+      if(obj.temperature>24){
+        alert("It's too hot. Turn on the Airconditioner!!")
+      }
       // only keep no more than 50 points in the line chart
       const maxLen = 50;
       var len = timeData.length;
@@ -94,7 +97,7 @@ $(document).ready(function () {
       if (obj.airquality) {
 
         airData.push(obj.airquality);
-        if(obj.airquality>47){
+        if(obj.airquality>55){
           alert("CO Level is too high. Please open the window!!!")
         }
       }

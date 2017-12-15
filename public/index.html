@@ -86,10 +86,20 @@
   <p id="demo"></p>
 
 <script>
-var z;
-z= "good"
+var ws = new WebSocket('wss://' + location.host);
+  ws.onopen = function () {
+    console.log('Successfully connect WebSocket');
+  }
+  ws.onmessage = function (message) {
+    console.log('receive message' + message.data);
+    
+      var obj = JSON.parse(message.data);
+      if(!obj.time || !obj.temperature) {
+        return;
+      }
+      var tep = obj.temperature;
 
-document.getElementById("demo").innerHTML = z;
+document.getElementById("demo").innerHTML = tep;}
 </script>
 </div>
 

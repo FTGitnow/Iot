@@ -95,7 +95,7 @@ $(document).ready(function () {
         airData.push(obj.airquality);
       }
       
-        alert("Air condition is not good. Please open the Window!!");
+        alert(obj.airquality);
       
       if (airData.length > maxLen) {
         airData.shift();

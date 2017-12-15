@@ -83,7 +83,7 @@ $(document).ready(function () {
       }
       timeData.push(obj.time);
       temperatureData.push(obj.temperature);
-      if(obj.temperature>29){
+      if(obj.temperature>35){
         alert("It's too hot. Turn on the Airconditioner!!")
       }
       // only keep no more than 50 points in the line chart

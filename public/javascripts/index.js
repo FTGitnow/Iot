@@ -97,7 +97,7 @@ $(document).ready(function () {
       if (obj.airquality) {
 
         airData.push(obj.airquality);
-        if(obj.airquality>55){
+        if(obj.airquality>70){
           alert("CO Level is too high. Please open the window!!!")
         }
       }

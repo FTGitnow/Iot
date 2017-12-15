@@ -28,10 +28,10 @@ $(document).ready(function () {
         pointHoverBorderColor: "rgba(24, 120, 240, 1)",
         data: humidityData
       },
-            {
+      {
         fill: false,
-        label: 'COLevel',
-        yAxisID: 'COLevel',
+        label: 'airquality',
+        yAxisID: 'airquality',
         borderColor: "rgba(24, 120, 240, 1)",
         pointBoarderColor: "rgba(24, 120, 240, 1)",
         backgroundColor: "rgba(24, 120, 240, 0.4)",
@@ -65,16 +65,16 @@ $(document).ready(function () {
             display: true
           },
           position: 'right'
-        },
-        {
-          id: 'COLevel',
+       },{
+          id: 'airquality',
           type: 'linear',
           scaleLabel: {
-            labelString: 'COLevel(%)',
+            labelString: 'airquality(cm)',
             display: true
           },
           position: 'right'
-        }]
+       }
+          ]
     }
   }
 
@@ -114,11 +114,11 @@ $(document).ready(function () {
       if (humidityData.length > maxLen) {
         humidityData.shift();
       }
-
-       if (obj.airquality) {
+      
+      if (obj.airquality) {
         airData.push(obj.airquality);
       }
-      if (humidityData.length > maxLen) {
+      if (airData.length > maxLen) {
         airData.shift();
       }
 

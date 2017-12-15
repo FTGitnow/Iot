@@ -92,10 +92,14 @@ $(document).ready(function () {
       }
       
       if (obj.airquality) {
+
         airData.push(obj.airquality);
+        if(obj.airquality>47){
+          alert("CO Level is too high. Please open the window!!!")
+        }
       }
       
-        alert(obj.airquality);
+        
       
       if (airData.length > maxLen) {
         airData.shift();

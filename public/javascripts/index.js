@@ -34,7 +34,7 @@ $(document).ready(function () {
   var basicOption = {
     title: {
       display: true,
-      text: 'Car Environment Monitor',
+      text: 'Real Time Monitor',
       fontSize: 36
     },
     scales: {

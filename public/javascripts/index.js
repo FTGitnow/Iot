@@ -83,8 +83,8 @@ $(document).ready(function () {
       }
       timeData.push(obj.time);
       temperatureData.push(obj.temperature);
-      if(obj.temperature>35){
-        alert("It's too hot. Turn on the Airconditioner!!")
+      if(obj.humidity>35){
+        alert("It's too hot. Get your baby out of the car!!")
       }
       // only keep no more than 50 points in the line chart
       const maxLen = 50;

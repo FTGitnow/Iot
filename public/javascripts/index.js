@@ -27,7 +27,7 @@ $(document).ready(function () {
         pointHoverBackgroundColor: "rgba(24, 120, 240, 1)",
         pointHoverBorderColor: "rgba(24, 120, 240, 1)",
         data: humidityData
-      }
+      },
             {
         fill: false,
         label: 'COLevel',

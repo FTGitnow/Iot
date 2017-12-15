@@ -86,8 +86,9 @@
   <p id="demo"></p>
 
 <script>
-
-document.getElementById("demo").innerHTML = obj.humidity;
+var obj = JSON.parse(message.data);
+var x = obj.temperature;
+document.getElementById("demo").innerHTML =x ;
 </script>
 </div>
 

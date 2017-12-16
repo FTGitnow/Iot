@@ -88,6 +88,7 @@
 <div class="container-fluid bg-2 text-center">
   <h3 >Car Environment Condition</h3>
   <p id="demo"></p>
+  <p id="demo1"></p>
 
 <script>
 var ws = new WebSocket('wss://' + location.host);
@@ -103,6 +104,11 @@ var ws = new WebSocket('wss://' + location.host);
       }
       var tep = obj.temperature;
       var air = obj.airquality;
+      var airday = 0;
+      if (air > 60){
+        airday+=1;
+      }
+
 if (tep >15 && tep < 30 && air < 70){
 document.getElementById("demo").innerHTML = "The condition is just right";}
 else if (air > 40 && tep > 30){
@@ -116,6 +122,9 @@ document.getElementById("demo").innerHTML = "The air is not fresh! Open the Wind
 }
 else if (tep <15){
 	document.getElementById("demo").innerHTML = "It's too cold. Get the heat!!";
+}
+if (airday > 5){
+document.getElementById("demo1").innerHTML = "Air is not good";
 }
 }
 

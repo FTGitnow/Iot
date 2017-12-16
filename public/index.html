@@ -24,17 +24,17 @@
   }
   p {font-size: 16px;}
   .margin {margin-bottom: 45px;}
-  .bg-1 { 
-      background-color: #ffedcc; 
+  .bg-1 {
+      background-color: #ffedcc;
       color: #ffffff;
   }
-  .bg-2 { 
-      background-color: #89ffb4; 
+  .bg-2 {
+      background-color: #89ffb4;
       color: #ffffff;
   }
 
-    .bg-4 { 
-      background-color: #474446; 
+    .bg-4 {
+      background-color: #474446;
       color: #ffffff;
   }
 
@@ -68,7 +68,7 @@
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
+        <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand" >Car Environment Monitor</a>
     </div>
@@ -79,9 +79,9 @@
 <!-- First Container -->
 <div class="container-fluid bg-1 text-center">
   <canvas id="myChart" width="400" height="150"></canvas>
-    
 
-  
+
+
 </div>
 
 <!-- Second Container -->
@@ -96,16 +96,21 @@ var ws = new WebSocket('wss://' + location.host);
   }
   ws.onmessage = function (message) {
     console.log('receive message' + message.data);
-    
+
       var obj = JSON.parse(message.data);
       if(!obj.time || !obj.temperature) {
         return;
       }
       var tep = obj.temperature;
       var air = obj.airquality;
-if (tep >15 && tep < 30 && air<70){
+if (tep >15 && tep < 30 && air < 70){
 document.getElementById("demo").innerHTML = "The condition is just right";}
-
+else if (air > 40 && tep > 30){
+document.getElementById("demo").innerHTML = "The air is not fresh! Open the Window!!";
+}
+else if (air >40 && tep <30){
+document.getElementById("demo").innerHTML = "The air is not fresh! Check the air conditioner!!";
+}
 else if (air > 60){
 document.getElementById("demo").innerHTML = "The air is not fresh! Open the Window!!";
 }
@@ -121,9 +126,9 @@ else if (tep <15){
 
 <!-- Footer -->
 <footer class="container-fluid bg-4 text-center">
-  <p>Made By TEAM 34</p> 
+  <p>Made By TEAM 34</p>
 </footer>
-    
+
 </body>
 
 

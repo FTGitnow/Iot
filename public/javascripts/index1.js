@@ -6,7 +6,7 @@ $(document).ready(function () {
     labels: timeData,
     datasets: [
 
- 
+
       {
         fill: false,
         label: 'Airquality',
@@ -63,7 +63,10 @@ $(document).ready(function () {
       if(!obj.time || !obj.temperature) {
         return;
       }
-      timeData.push(obj.time);
+      if (obj.airquality > 70) {
+        airData.push(obj.airquality);
+        timeData.push(obj.time);
+      }
 
       // only keep no more than 50 points in the line chart
       const maxLen = 50;
@@ -72,14 +75,7 @@ $(document).ready(function () {
         timeData.shift();
         airData.shift();
       }
-      
-      if (obj.airquality > 70) {
 
-        airData.push(obj.airquality);
-    
-      }
-      
-      
       if (airData.length > maxLen) {
         airData.shift();
       }

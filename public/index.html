@@ -102,8 +102,8 @@ var ws = new WebSocket('wss://' + location.host);
 if (tep >15 && tep < 30 && air<70){
 document.getElementById("demo").innerHTML = "The condition is just right";}
 
-else if (air > 70){
-document.getElementById("demo").innerHTML = "The CO Level is too high!!Open the Window!!";
+else if (air > 60){
+document.getElementById("demo").innerHTML = "The air is not fresh! Open the Window!!";
 }
 else if (tep <15){
 	document.getElementById("demo").innerHTML = "It's too cold. Get the heat!!";

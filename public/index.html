@@ -29,7 +29,7 @@
       color: #ffffff;
   }
   .bg-2 {
-      background-color: #89ffb4;
+      background-color: #4affbb;
       color: #ffffff;
   }
 
@@ -91,6 +91,12 @@
   <p id="demo1"></p>
 
 <script>
+var T = 80;
+var RH = 0.5;
+var HI = (-42379 + 2049*T + 10143*RH - 225*T*RH - 6.83*T*T - 54.8*RH*RH)/1000;
+var T ;
+T = (HI - 32) / (9/5);
+
 var ws = new WebSocket('wss://' + location.host);
   ws.onopen = function () {
     console.log('Successfully connect WebSocket');
@@ -109,22 +115,40 @@ var ws = new WebSocket('wss://' + location.host);
         airday+=1;
       }
 
-if (tep >15 && tep < 30 && air < 70){
+var twilio = require('twilio');
+var client = new twilio('TWILIO_ACCOUNT_SID', 'TWILIO_AUTH_TOKEN');
+
+client.messages.create({
+  to: 'YOUR_NUMBER',
+  from: 'YOUR_TWILIO_NUMBER',
+  body: 'Ahoy from Twilio!'
+});
+
+
+
+if (HI >20 && HI < 30){
 document.getElementById("demo").innerHTML = "The condition is just right";}
-else if (air > 40 && tep > 30){
+else if (HI < 20){
+document.getElementById("demo").innerHTML = "It’s too cold. Turn on the heat!";
+}
+else if (HI > 35 ){
+document.getElementById("demo").innerHTML = "It’s too hot. Turn on the air conditioner!";
+}
+else if (air > 40 && air < 50){
 document.getElementById("demo").innerHTML = "The air is not fresh! Open the Window!!";
 }
-else if (air >40 && tep <30){
-document.getElementById("demo").innerHTML = "The air is not fresh! Check the air conditioner!!";
+else if (air >50 && air < 60){
+	document.getElementById("demo").innerHTML = "The air is bad! Open the Window!!";
 }
-else if (air > 60){
-document.getElementById("demo").innerHTML = "The air is not fresh! Open the Window!!";
+if (air > 50){
+    client.sendMessage();
 }
-else if (tep <15){
-	document.getElementById("demo").innerHTML = "It's too cold. Get the heat!!";
+if (tep > 40){
+    client.sendMessage();
 }
+
 if (airday > 5){
-document.getElementById("demo1").innerHTML = "Air is not good";
+document.getElementById("demo1").innerHTML = "Air is not good for a while. You should check the vehicle.";
 }
 }
 
